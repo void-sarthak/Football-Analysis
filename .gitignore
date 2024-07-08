@@ -1,0 +1,6 @@
+*__pycahce__*
+*.pyc
+
+# Ignore models
+models/best.pt
+yolov8x.pt
