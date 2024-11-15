@@ -15,7 +15,7 @@ def main():
     tracker = Tracker('models/best.pt')
 
     tracks = tracker.get_object_tracks(video_frames, 
-                                       read_from_stub=True, 
+                                       read_from_stub=False, 
                                        stub_path='stubs/track_stubs.pkl')
     
     tracker.add_position_to_tracks(tracks)
@@ -23,7 +23,7 @@ def main():
     # Estimate Camera Movement
     camera_movement_estimator = CameraMovementEstimator(video_frames[0])
     camera_movement_per_frame = camera_movement_estimator.get_camera_movement(video_frames,
-                                                                              read_from_stub = True,
+                                                                              read_from_stub = False,
                                                                               stub_path = 'stubs/camera_movement_stub.pkl')
     
     camera_movement_estimator.add_adjust_positions_to_tracks(tracks, camera_movement_per_frame)
